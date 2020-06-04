@@ -22,8 +22,35 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader'
-      }
+        use: [
+          // {
+          //   loader: 'url-loader',
+          //   options: {
+          //     limit: 8192,
+          //   },
+          // },
+          // {
+          //   loader: 'file-loader',
+          // },
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/preset-react']
+            }
+          }
+        ],
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 25000
+            }
+          }
+        ]
+      },
     ]
   }
 }
