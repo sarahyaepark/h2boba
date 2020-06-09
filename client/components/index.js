@@ -4,12 +4,13 @@
  * having to figure out which file they belong to!
  */
 
-export {Navbar} from './navbar'
+export { Navbar } from "./navbar";
 // export {default as UserHome} from './user-home'
 // export {Login, Signup} from './auth-form'
-export {Homepage} from './Homepage'
-export {default as Blends} from './Blends'
-export {default as SingleBlend} from './SingleBlend'
-export {default as SingleTea} from './SingleBlend'
-export {default as Teas} from './Teas'
-export {Spacer} from './Spacer'
+export { Homepage } from "./Homepage";
+export { About } from "./About";
+export { default as Blends } from "./Blends";
+export { default as SingleBlend } from "./SingleBlend";
+export { default as SingleTea } from "./SingleBlend";
+export { default as Teas } from "./Teas";
+export { Spacer } from "./Spacer";
