@@ -56,28 +56,45 @@ export const Homepage = (props) => {
           alt="Bubble Tea"
         />
         <div className="titleContainer">
-          <h1 className="homeTitle">Hey Cuteas!</h1>
-          <h1>Grand Opening Special: BUY ONE GET ONE FREE</h1>
+          <h1 className="homeTitle">
+            Hey Cuteas!{" "}
+            <span role="img" aria-label="wave">
+              👋
+            </span>
+          </h1>
+          <h1>❗Grand Opening Special: BUY ONE GET ONE FREE❗</h1>
         </div>
         <Spacer />
       </div>
       <br />
-        <br />
+      <br />
       <div className="mapContainer">
-        
         <div ref={(el) => (mapContainer.current = el)} className="map" />
-        <div className="textContainer">
+        <div className="storeInfoContainer">
           <h3>Come Partea!</h3>
-          <h3 className="aboutText">100 1/2 S Vermont Ave <br/> Los Angeles, CA 90004</h3>
-          <h3 className="aboutText">Find us on <a href="https://www.yelp.com/biz/h2boba-los-angeles" target="_blank">
+          <h3 className="aboutText">
+            100 1/2 S Vermont Ave <br /> Los Angeles, CA 90004
+          </h3>
+          <h3 className="aboutText">
+            Find us on{" "}
+            <a
+              href="https://www.yelp.com/biz/h2boba-los-angeles"
+              target="_blank"
+            >
               <span className="links">Yelp</span>
             </a>
-            <img src="https://image.flaticon.com/icons/svg/2111/2111746.svg" width="40px"height="40px"/>
-            </h3>
+            <img
+              src="https://image.flaticon.com/icons/svg/2111/2111746.svg"
+              width="40px"
+              height="40px"
+            />
+          </h3>
         </div>
-        <div className="textContainer">
-        <h3>Hours:</h3>
-          <h3 className="aboutText">Monday - Saturday <br /> 10AM - 7PM</h3>
+        <div className="storeInfoContainer">
+          <h3>Hours:</h3>
+          <h3 className="aboutText">
+            Monday - Saturday <br /> 10AM - 7PM
+          </h3>
         </div>
       </div>
       <Spacer />
