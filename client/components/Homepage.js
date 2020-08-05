@@ -1,17 +1,46 @@
-import React from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import bobahhh from "../../public/images/bobahhh.png";
 import aqua9Logo from "../../public/images/aqua9_logo.png";
 import bobaBackground from "../../public/images/boba_background.jpg";
-
+const MAPBOX_KEY = require("../../secrets");
+import mapboxgl from "mapbox-gl";
 import { Spacer } from "../components";
 
+mapboxgl.accessToken = MAPBOX_KEY;
+
 export const Homepage = (props) => {
+  const [map, setMap] = useState(null);
+  const mapContainer = useRef(null);
+
+  useEffect(() => {
+    mapboxgl.accessToken = MAPBOX_KEY;
+    const initializeMap = ({ setMap, mapContainer }) => {
+      const map = new mapboxgl.Map({
+        container: mapContainer.current,
+        style: "mapbox://styles/mapbox/streets-v11",
+        center: [-118.29121, 34.072665],
+        zoom: 18,
+      });
+
+      map.on("load", () => {
+        setMap(map);
+        map.resize();
+      });
+
+      const marker = new mapboxgl.Marker()
+        .setLngLat([-118.29121, 34.072665])
+        .addTo(map);
+    };
+
+    if (!map) initializeMap({ setMap, mapContainer });
+  }, [map]);
+
   return (
     <div>
       {/* <!-- See navbar.js for reference of what will show up above --> */}
       <div className="sayBobahhh">
-        <div className="parentImg">
+        {/* <div className="parentImg">
           <img id="bobaBg" src={bobaBackground} alt="boba" />
           <img
             id="bobahhhImg"
@@ -20,39 +49,55 @@ export const Homepage = (props) => {
             width="800px"
             height="300px"
           />
-        </div>
+        </div> */}
         <br />
-        <img src={aqua9Logo} alt="aqua9plus" width="120px" height="40px" />
+        <img
+          src="https://assets3.thrillist.com/v1/image/2811343/1000x666.6666666666666/flatten;crop;jpeg_quality=70"
+          alt="Bubble Tea"
+        />
+        <div className="titleContainer">
+          <h1 className="homeTitle">
+            Hey Cuteas!{" "}
+            <span role="img" aria-label="wave">
+              👋
+            </span>
+          </h1>
+          <h1>❗Grand Opening Special: BUY ONE GET ONE FREE❗</h1>
+        </div>
         <Spacer />
       </div>
-      <div className="categories">
-        <div className="blendCategory">
-          <NavLink to="/blends">
-            <div>
-              <h3>Blendz</h3>
-            </div>
-            <div>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQJEqz8-PmH8bOM8jOWwBKFsHLCZLY-JbqmU8NxWlrBG-p38n1&usqp=CAU"
-                alt="blends"
-              />
-            </div>
-          </NavLink>
+      <br />
+      <br />
+      <div className="mapContainer">
+        <div ref={(el) => (mapContainer.current = el)} className="map" />
+        <div className="storeInfoContainer">
+          <h3>Come Partea!</h3>
+          <h3 className="aboutText">
+            100 1/2 S Vermont Ave <br /> Los Angeles, CA 90004
+          </h3>
+          <h3 className="aboutText">
+            Find us on{" "}
+            <a
+              href="https://www.yelp.com/biz/h2boba-los-angeles"
+              target="_blank"
+            >
+              <span className="links">Yelp</span>
+            </a>
+            <img
+              src="https://image.flaticon.com/icons/svg/2111/2111746.svg"
+              width="40px"
+              height="40px"
+            />
+          </h3>
         </div>
-        <div className="teaCategory">
-          <NavLink to="/teas">
-            <div>
-              <h3>Teaz</h3>
-            </div>
-            <div>
-              <img
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRQJEqz8-PmH8bOM8jOWwBKFsHLCZLY-JbqmU8NxWlrBG-p38n1&usqp=CAU"
-                alt="teas"
-              />
-            </div>
-          </NavLink>
+        <div className="storeInfoContainer">
+          <h3>Hours:</h3>
+          <h3 className="aboutText">
+            Monday - Saturday <br /> 10AM - 7PM
+          </h3>
         </div>
       </div>
+      <Spacer />
     </div>
   );
 };

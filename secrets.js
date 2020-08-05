@@ -1,0 +1,2 @@
+const MAPBOX_API_KEY = "pk.eyJ1Ijoic2FyenkxOCIsImEiOiJja2Rncm43dzI1YjdnMzZxcjM0eGVleWppIn0.l7aAEnQ0GRTZQ0arflKStA"
+module.exports = MAPBOX_API_KEY
