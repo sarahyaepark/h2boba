@@ -5,19 +5,24 @@ import logo from "../../public/images/h2boba_logo_final.png";
 export const Navbar = () => (
   <div>
     <div className="navBar">
-      <Link to="/home">
-        <img src={logo} alt="h2boba" width="250px" height="84px" />
-      </Link>
       <nav>
         <div>
           <Link to="/home">Home</Link>
           <Link to="/about">About Us</Link>
+        </div>
+      </nav>
+      <Link to="/home">
+        <img src={logo} alt="h2boba" width="250px" height="80px" />
+      </Link>
+      <nav>
+        <div>
           <Link to="/blends">Blendz</Link>
           <Link to="/teas">Teaz</Link>
         </div>
       </nav>
     </div>
-    <hr />
+    {/* <hr /> */}
+    <br />
   </div>
 );
 

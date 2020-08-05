@@ -18,18 +18,21 @@
     "postinstall": "touch secrets.js",
     "seed": "node script/seed.js",
     "start": "node server/index.js",
-    "start-dev":
-      "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
-    "start-server":
-      "nodemon server -e html,js,scss --ignore public --ignore client",
-    "test":
-      "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
+    "start-dev": "NODE_ENV='development' npm run build-client-watch & NODE_ENV='development' npm run start-server",
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
+    "test": "NODE_ENV='test' mocha \"./server/**/*.spec.js\" \"./client/**/*.spec.js\" \"./script/**/*.spec.js\" --require @babel/polyfill --require @babel/register"
   },
-  "husky": {
-  },
+  "husky": {},
   "lint-staged": {
-    "*.{js,jsx}": ["prettier --write", "npm run lint-fix", "git add"],
-    "*.{css,scss,json,md}": ["prettier --write", "git add"]
+    "*.{js,jsx}": [
+      "prettier --write",
+      "npm run lint-fix",
+      "git add"
+    ],
+    "*.{css,scss,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
   },
   "author": "Sarah Park",
   "license": "MIT",
@@ -42,6 +45,7 @@
     "express": "^4.16.4",
     "express-session": "^1.15.1",
     "history": "^4.9.0",
+    "mapbox-gl": "^1.11.1",
     "morgan": "^1.9.1",
     "passport": "^0.4.0",
     "passport-google-oauth": "^2.0.0",
